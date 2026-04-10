@@ -67,6 +67,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
                 saveInt(KEY_SESSION_MINUTES, progressToMinutes(seekBar.getProgress()));
+
+                //saveHistory(KEY_SESSION_HISTORY, );
             }
         });
     }
@@ -100,6 +102,18 @@ public class MainActivity extends AppCompatActivity {
         return remindersEnabled ? base + 2 : base;
     }
 
+//    private String historyToString(String[] historyTab){
+//        String historyStr = "";
+//        if(historyArr.length > 5){
+//
+//        } eles {
+//            for (int i = 0; i < historyArr.length; i++) {
+//
+//            }
+//        }
+//
+//    }
+
     private void updateSessionLabel(int minutes) {
         tvSessionValue.setText(String.format(Locale.getDefault(), "%d min", minutes));
     }
@@ -126,8 +140,8 @@ public class MainActivity extends AppCompatActivity {
         sharedPreferences.edit().putInt(key, value).apply();
     }
 
-    private void saveHistory(String key, int value) {
+    private void saveHistory(String key, String value) {
 
-        sharedPreferences.edit().putInt(key, value).apply();
+        sharedPreferences.edit().putString(key, value).apply();
     }
 }
